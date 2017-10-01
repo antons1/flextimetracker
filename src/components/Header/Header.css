@@ -1,0 +1,10 @@
+.main-header {
+    padding: 1rem;
+    background-color: teal;
+}
+
+.main-header__title {
+    margin: 0;
+    padding: 0;
+    color: white;
+}
