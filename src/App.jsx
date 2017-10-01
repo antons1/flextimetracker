@@ -1,9 +1,18 @@
 import React, { Component } from 'react';
+import * as Firebase from 'firebase'
 import './App.css';
 
 import Header from './components/Header/Header.jsx';
 import TimeDisplay from './components/TimeDisplay/TimeDisplay.jsx';
 import ControlSection from './components/ControlSection/ControlSection.jsx';
+
+const firebaseConfig  = {
+    apiKey: "AIzaSyAFs8O_4Q80JYC-iM8ySjDOysAEIhPY5Ic",
+    databaseURL: "https://flextimetracker.firebaseio.com/"
+}
+
+const firebase = Firebase.initializeApp(firebaseConfig);
+const fbdb = firebase.database();
 
 class App extends Component {
     constructor() {
@@ -11,10 +20,18 @@ class App extends Component {
 
         this.getTimeStringFromMinutes = this.getTimeStringFromMinutes.bind(this);
         this.updateTimeValue = this.updateTimeValue.bind(this);
-
+        this.getInitialFirebaseMinutes = this.getInitialFirebaseMinutes.bind(this);
+        
         this.state = {
-            minutes: 123
+            minutes: 0
         }
+
+        this.getInitialFirebaseMinutes();
+    }
+
+    getInitialFirebaseMinutes() {
+        const self = this;
+        fbdb.ref('/minutes/0').on('value', (snapshot) => self.setState({ minutes: snapshot.val() }));
     }
 
     getTimeStringFromMinutes() {
@@ -27,7 +44,7 @@ class App extends Component {
     }
 
     updateTimeValue(value) {
-        this.setState({ minutes: this.state.minutes + value });
+        fbdb.ref('/minutes/0').transaction((minutes) => minutes += value);
     }
 
     render() {
