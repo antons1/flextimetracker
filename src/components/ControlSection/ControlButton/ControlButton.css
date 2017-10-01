@@ -1,0 +1,19 @@
+.control-button {
+    display: inline-block;
+    font-size: 2rem;
+    margin: 1rem;
+    flex: 1 1 25%;
+    border-radius: .5rem;
+}
+
+.control-button--positive {
+    background-color: lightgreen;
+    border: 1px solid green;
+    color: green;
+}
+
+.control-button--negative {
+    background-color: pink;
+    border: 1px solid red;
+    color: red;
+}

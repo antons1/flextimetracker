@@ -1,6 +1,7 @@
 .main-header {
     padding: 1rem;
     background-color: teal;
+    font-family: "EB Garamond", serif;
 }
 
 .main-header__title {

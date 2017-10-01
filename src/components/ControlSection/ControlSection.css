@@ -1,0 +1,45 @@
+.control-section {
+
+}
+
+.control-section__fast-controls {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+}
+
+.control-section__custom-controls {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.control-button {
+    display: inline-block;
+    font-size: 2rem;
+    height: 4rem;
+    margin: 1rem;
+    flex: 1 1 25%;
+    border-radius: .5rem;
+    background-color: white;
+    color: teal;
+    border: 1px solid teal;
+}
+
+.custom-controls__number-input {
+    flex: 2 1 25%;
+    font-size: 2rem;
+    line-height: 2rem;
+    padding: 0 0 0 0;
+    width: 25%;
+    border: none;
+    border-bottom: 1px solid teal;
+    display: inline-block;
+    margin: 1rem;
+    text-align: center;
+    color: teal;
+
+}
