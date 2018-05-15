@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './ControlSection.css';
 
+import Date from './Date/Date';
+
 const ControlButton = (props) =>
     <button className="control-button" onClick={props.onClickFn.bind(this, props.value)}>
         {props.label}
@@ -46,6 +48,7 @@ class ControlSection extends Component {
                     <input placeholder={0} onChange={this.onCustomNumberChange} type="number" className="custom-controls__number-input" />
                     <ControlButton label="+" value={this.getCustomNumberForButton(true, this.state.customNumber)} onClickFn={this.props.updateTimeData} />
                 </div>
+                <Date />
             </div>
         );
     }
